@@ -27,6 +27,11 @@ while is_game:
         food.refresh()
         scoreboard.increment()
 
+    # detection of collision with wall
+    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+        is_game = False
+        scoreboard.end_of_game()
+
     screen.onkey(snake.go_up, "Up")
     screen.onkey(snake.go_down, "Down")
     screen.onkey(snake.go_left, "Left")
